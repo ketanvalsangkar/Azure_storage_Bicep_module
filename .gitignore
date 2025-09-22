@@ -1,0 +1,21 @@
+# Bicep build artifacts
+*.bicep.params.json
+*.bicep.template.json
+
+# Azure CLI cache
+.azure/
+
+# VS Code settings
+.vscode/
+*.code-workspace
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Secrets and credentials
+*.env
+*.pem
+*.key
+*.crt
+*.pfx
