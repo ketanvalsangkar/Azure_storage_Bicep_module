@@ -1,0 +1,31 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  resourceGroupName: 'mytestrg'
+  location: 'eastus'
+  storageAccountName: 'stoargetest'
+
+stages:
+  - stage: DeployStorage
+    displayName: 'Deploy Azure Storage Account'
+    jobs:
+      - job: Deploy
+        displayName: 'Run Bicep Deployment'
+        steps:
+          - task: AzureCLI@2
+            inputs:
+              azureSubscription: 'azure-devops-connection'
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                az deployment group create \
+                  --resource-group $(resourceGroupName) \
+                  --template-file main.bicep \
+                  --parameters storageAccountName=$(storageAccountName) location=$(location)
+            displayName: 'Deploy Bicep Template'
