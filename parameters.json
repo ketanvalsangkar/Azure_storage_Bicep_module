@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "string",
+      "defaultValue": "tandemb2cstoragetest",
+      "metadata": {
+        "description": "The name of the storage account."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "eastus",
+      "metadata": {
+        "description": "The location where the storage account will be created."
+      }
+    },
+    "sku": {
+      "type": "string",
+      "defaultValue": "Standard_ZRS",
+      "metadata": {
+        "description": "The SKU of the storage account."
+      }
+    }
+  }
+}
